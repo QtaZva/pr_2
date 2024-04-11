@@ -27,10 +27,23 @@ namespace pr_2
 
         private void addPersonbtn(object sender, RoutedEventArgs e)
         {
-            Person.Name = nameTextBox.Text;
-            Person.Surname = surnameTextBox.Text;
-            Person.Birthday = birthdayDatePicker.Text;
+            if (nameTextBox.Text == "")
+            {
+                MessageBox.Show("Введите корректное имя");
+
+            }
+            else if (surnameTextBox.Text == "")
+            {
+                MessageBox.Show("Введите корректную фамилию");
+
+            }
+            else 
+            { 
+            Person.Name = nameTextBox.Text.Trim();
+            Person.Surname = surnameTextBox.Text.Trim();
+            Person.Birthday = birthdayDatePicker.Text.Trim();
             Person.getInformation();
+            }
         }
     }
 }

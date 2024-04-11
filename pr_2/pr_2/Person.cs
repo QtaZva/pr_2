@@ -14,15 +14,31 @@ namespace pr_2
         public static string Birthday { get; set; }
         public static int getAge()
         {
+                                   
             string nowDate = DateTime.Now.ToString().Substring(0,10);
             int personYear = Convert.ToInt32(Birthday.Substring(6, 4));
             int nowYear = Convert.ToInt32(nowDate.Substring(6, 4));
             int personAge = nowYear - personYear;
-            return personAge;
+            if (personAge >= 18)
+            {
+                return personAge;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public static void getInformation()
         {
-            MessageBox.Show($"Имя: {Name} Фамилия: {Surname} Возраст: {getAge()}");
+            if (Birthday == "")
+            {
+                MessageBox.Show("Введите корректную дату");
+            }
+            else
+            {
+
+                MessageBox.Show($"Имя: {Name} Фамилия: {Surname} Возраст: {getAge()}");
+            }
         }
     }
 }
